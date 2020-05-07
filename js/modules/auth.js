@@ -35,6 +35,6 @@ import config from './config.js';
      }
  }
 
- token = sessionStorage.getItem(config.tokenName;)
+ token = sessionStorage.getItem(config.tokenName);
 
  export default token;
