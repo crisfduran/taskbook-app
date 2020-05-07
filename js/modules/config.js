@@ -2,7 +2,7 @@
  * Config for OAuth2 and REST requests.
  * 
  * This will have to change in production.
- * @TODO: Research how config files are managed live.
+ * @todo: Research how config files are managed live.
  */
 
  const rootURL = '';
