@@ -5,7 +5,7 @@
  * @todo: Research how config files are managed live.
  */
 
- const rootURL = '';
+ const rootURL = 'http://restapi.local';
 
  const config = {
      rootURL: rootURL,
