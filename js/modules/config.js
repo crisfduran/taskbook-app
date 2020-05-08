@@ -11,7 +11,7 @@
      rootURL: rootURL,
      taskRoute: `${rootURL}/wp-json/wp/v2/tasks/`,
      authURI: `${rootURL}/oauth/authorize`,
-     clientID: '',
+     clientID: 'wisjLQX9uI6MxImVRqqDmO3Yr4a8SbJRkbiTmjxp',
      responseType: 'token',
      tokenName: 'taskAppToken'
  }
