@@ -15,7 +15,7 @@ function getDate( task ) {
         day:        "numeric",
         hour:       "2-digit",
         minute:     "2-digit",
-        timeZone:   "Sweden/Stockholm"
+        timeZone:   "Europe/Stockholm"
     };
 
     if ( !task.modified ) {
@@ -36,7 +36,7 @@ function getDate( task ) {
  */
 function morePostsTrigger(){
   const observer = new IntersectionObserver( function (entries, self) {
-      entries.forEach( entry=>{
+      entries.forEach( entry => {
           if ( entry.isIntersecting ) {
               self.disconnect();
               pageCount++;
@@ -48,7 +48,7 @@ function morePostsTrigger(){
   observer.observe( document.querySelector( '.more' ) );
 }
 
-function createTaskList() {
+function createTaskList( taskObjectList ) {
     if ( taskObjectList.code != undefined ) {
         console.info( `No more TODOs loaded because ${taskObjectList.code}.`);
         
@@ -74,6 +74,20 @@ const getTaskList = ( listRoute ) => {
 
     more.style.display = 'none';
     loader.style.display = 'block';
+
+    fetch( listRoute, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + sessionStorage.getItem( config.tokenName )
+        }
+    } )
+    .then( response => response.json() )
+    .then( taskObjectList => createTaskList( taskObjectList ) )
+    .catch( (error) => {
+        console.error( 'Fetch error: ', error );
+        loader.style.display = 'none';
+    })
 }
 
 export default getTaskList;
