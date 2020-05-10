@@ -15,6 +15,7 @@ function getDate( task ) {
         day:        "numeric",
         hour:       "2-digit",
         minute:     "2-digit",
+        // https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
         timeZone:   "Europe/Stockholm"
     };
 
